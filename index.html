@@ -28,20 +28,27 @@
     <main class="l-main">
         <div class="l-main__input">
             <div class="m-input__content">
-                <label for="task">Adicione sua tarefa:</label>
+                <label for="taskInput">Adicione sua tarefa:</label>
                 <input type="text" name="" id="taskInput" placeholder="Adicione sua tarefa aqui...  :)">
             </div>
-            <button onclick="sendTask()" id="btn-sendtask">Enviar tarefa</button>
+            <button id="btn-sendtask" onclick='sendTask()'>Enviar tarefa</button>
         </div>
-
+        <!-- onclick='sendTask(tasksArray)' -->
         <section class="l-main__content">
             <div class="m-content__header">
                 <h2>Tarefas adicionadas:</h2>
+                <p><span style="font-weight: bolder;">Dica:</span> Você pode marcar a tarefa clicando no checkbox ou no
+                    nome da tarefa. Para remove-la use o botão remover.</p>
             </div>
-            <div class="m-content__tasks">
-                <input type="checkbox">
-                <p class="c-tasks__taskText">Alguma coisa</p>
-                <button class="c-tasks__btnRemove">Remover Tarefa</button>
+            <div class="m-content_C">
+                <p class="contentWarn"></p>
+
+                <!-- <div class="m-content__tasks">
+                    <input type="checkbox" class="c-tasks__checkbox" id="checkboxTask">
+                    <label for="checkboxTask" class="c-tasks__label">Alguma coisa</label>
+                    <button class="c-tasks__btnRemove">Remover Tarefa</button>
+                </div>
+                 -->
             </div>
         </section>
     </main>

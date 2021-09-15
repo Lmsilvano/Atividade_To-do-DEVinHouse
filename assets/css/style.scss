@@ -26,7 +26,7 @@ body{
 /*  1.2 Mixins, Variaveis e Animações   */
 
 $boxshadow:rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
-
+$btncolor: #3d7769;
 
 
 
@@ -56,7 +56,7 @@ $boxshadow:rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
 //  2.  Estilização do corpo  //
 //  2.1  Header  //
 .l-header{
-    animation: gradient 24s ease infinite;
+    animation: gradient 20s ease infinite;
     @include centerFlexColumn;
     background: linear-gradient(-10deg, #43447eb7, #163855, #356070, #3d7769) no-repeat;
     background-size: 300% 300%;
@@ -108,7 +108,7 @@ $boxshadow:rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
     font-weight: 550;
 }
 #btn-sendtask{
-    background:  #3d7769;
+    background: $btncolor;
     width: 20vw;
     height:4vh;
     color: white;
@@ -132,4 +132,69 @@ $boxshadow:rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
     padding-top: 2vh;
     border-radius: 20px;
     box-shadow: $boxshadow;
+}
+
+
+.m-content__header{
+    align-self: center;
+    margin-bottom: 2vh;
+    text-align: justify;
+    padding: 2px 20px;
+}
+
+// .m-content__tasks::before{
+//     content: '';
+    
+//     width:30vw;
+//     height: 3px;
+//     margin: 1vh 0;
+//     background-color: #163855;
+// }
+.m-content_C{
+    height: auto;
+    width: auto;
+}
+.contentWarn{
+    color: white; 
+    font-size: large; 
+    font-weight: 400; 
+    text-align: justify;
+    margin: 2vh;
+}
+.m-content__tasks{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: $btncolor;
+    font-size: large;
+    font-weight: 600;
+    background-color: #f0f2f5;
+    //border: 3px dotted #163855;
+    padding: 5px  10px;
+    border-radius: 15px;
+    width: 30vw;
+    height: auto;
+    box-shadow: $boxshadow;
+    margin-bottom: 2vh;
+}
+
+.c-tasks__checkbox {
+    align-self: center;
+    -ms-transform: scale(2); /* IE */
+    -moz-transform: scale(2); /* FF */
+    -webkit-transform: scale(2); /* Safari and Chrome */
+    -o-transform: scale(2); /* Opera */
+    transform: scale(2);
+    padding: 10px;
+}
+.c-tasks__label{
+    align-self: center;
+}
+
+.c-tasks__btnRemove{
+    font-size: medium;
+    background-color: $btncolor;
+    color: white;
+    border-radius: 25px;
+    padding: 8px;
 }
