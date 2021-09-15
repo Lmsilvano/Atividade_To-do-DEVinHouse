@@ -1,0 +1,178 @@
+@charset "UTF-8";
+/*  1.Configurações gerais/Padronização  */
+@import url("https://fonts.googleapis.com/css2?family=Urbanist&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Urbanist', sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  padding: 1vw;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f0f2f5;
+}
+
+/*  1.2 Mixins, Variaveis e Animações   */
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.l-header {
+  -webkit-animation: gradient 24s ease infinite;
+          animation: gradient 24s ease infinite;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: linear-gradient(-10deg, #43447eb7, #163855, #356070, #3d7769) no-repeat;
+  background-size: 300% 300%;
+  color: white;
+  height: 30vh;
+  width: 100vw;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
+          box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
+  border-radius: 0 0 50px 50px;
+}
+
+.l-header__description {
+  font-size: large;
+}
+
+.l-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: auto;
+  width: auto;
+  border: 2px solid red;
+  margin: 4vh 0;
+}
+
+.l-main__input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: large;
+  background-color: #356070;
+  color: white;
+  width: 40vw;
+  height: 12vh;
+  border-radius: 20px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
+          box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
+}
+
+.m-input__content {
+  margin-left: 2vw;
+}
+
+#taskInput {
+  border-radius: 15px;
+  width: 20vw;
+  height: 3vh;
+  padding-left: 10px;
+  font-size: large;
+  font-weight: 550;
+}
+
+#btn-sendtask {
+  background: #3d7769;
+  width: 20vw;
+  height: 4vh;
+  color: white;
+  font-size: large;
+  margin-top: 1vh;
+  border-radius: 50px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.l-main__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 3vh;
+  background-color: #356070;
+  width: 40vw;
+  height: auto;
+  color: white;
+  padding-top: 2vh;
+  border-radius: 20px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
+          box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
+}
+/*# sourceMappingURL=style.css.map */

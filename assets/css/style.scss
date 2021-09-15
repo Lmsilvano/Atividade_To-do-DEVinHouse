@@ -1,0 +1,135 @@
+/*  1.Configurações gerais/Padronização  */
+
+@import url('https://fonts.googleapis.com/css2?family=Urbanist&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none; 
+    font-family: 'Urbanist', sans-serif; 
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    padding: 1vw;
+}
+
+body{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f2f5;
+}
+
+/*  1.2 Mixins, Variaveis e Animações   */
+
+$boxshadow:rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
+
+
+
+
+@mixin centerFlexColumn {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+
+
+//  2.  Estilização do corpo  //
+//  2.1  Header  //
+.l-header{
+    animation: gradient 24s ease infinite;
+    @include centerFlexColumn;
+    background: linear-gradient(-10deg, #43447eb7, #163855, #356070, #3d7769) no-repeat;
+    background-size: 300% 300%;
+    color: white;
+    height: 30vh;
+    width: 100vw;
+    box-shadow: $boxshadow;
+    border-radius: 0 0 50px 50px;
+    
+    
+}
+.l-header__description{
+    font-size: large;
+}
+
+//  2.2  Main   //
+
+.l-main{
+    @include centerFlexColumn;
+    
+    height: auto;
+    width: auto;
+    border: 2px solid red;
+    margin: 4vh 0;
+
+}
+
+.l-main__input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: large;
+    background-color: rgba(53, 96, 112, 1);
+    color: white;
+    width: 40vw;
+    height: 12vh;
+    border-radius: 20px;
+    box-shadow: $boxshadow;
+}
+.m-input__content{
+    margin-left: 2vw;
+}
+#taskInput{
+    border-radius: 15px;
+    width: 20vw;
+    height: 3vh;
+    padding-left:10px;
+    font-size: large;
+    font-weight: 550;
+}
+#btn-sendtask{
+    background:  #3d7769;
+    width: 20vw;
+    height:4vh;
+    color: white;
+    font-size: large;
+    margin-top: 1vh;
+    border-radius: 50px;
+    align-self: center;
+
+    
+}
+
+//2.2.1                  Main Content
+
+.l-main__content{
+    @include centerFlexColumn;
+    margin-top: 3vh;
+    background-color: rgba(53, 96, 112, 1);
+    width: 40vw;
+    height: auto;
+    color: white;
+    padding-top: 2vh;
+    border-radius: 20px;
+    box-shadow: $boxshadow;
+}

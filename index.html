@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" />
+    <title>Organizador de tarefas</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+
+</head>
+
+<body>
+
+
+    <!-- Inicio do Header -->
+    <header class="l-header">
+        <div class="l-header__logo">
+            <h1>To-Do List</h1>
+        </div>
+        <p class="l-header__description">Organize melhor o seu dia, adicione as tarefas pendentes.</p>
+    </header>
+
+
+    <!-- Inicio do main(Principal) -->
+    <main class="l-main">
+        <div class="l-main__input">
+            <div class="m-input__content">
+                <label for="task">Adicione sua tarefa:</label>
+                <input type="text" name="" id="taskInput" placeholder="Adicione sua tarefa aqui...  :)">
+            </div>
+            <button onclick="sendTask()" id="btn-sendtask">Enviar tarefa</button>
+        </div>
+
+        <section class="l-main__content">
+            <div class="m-content__header">
+                <h2>Tarefas adicionadas:</h2>
+            </div>
+            <div class="m-content__tasks">
+                <input type="checkbox">
+                <p class="c-tasks__taskText">Alguma coisa</p>
+                <button class="c-tasks__btnRemove">Remover Tarefa</button>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Inicio do footer -->
+    <footer class="l-footer">
+        footer
+    </footer>
+
+
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
