@@ -125,7 +125,11 @@ body {
 }
 
 .m-input__content {
-  margin-left: 2vw;
+  -webkit-transform: translateX(-4vw);
+          transform: translateX(-4vw);
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 #taskInput {
@@ -191,12 +195,26 @@ body {
 
 .contentWarn {
   display: none;
-  background: #ff4040;
+  background: rgba(255, 64, 64, 0.7);
   color: white;
   font-size: large;
   font-weight: 400;
   text-align: center;
   margin: 2vh;
+}
+
+.contentAdvise {
+  display: none;
+  color: white;
+  font-size: large;
+  font-weight: 400;
+  text-align: justify;
+  margin: 1vh 1vw;
+}
+
+#checked {
+  text-decoration: line-through;
+  background-color: RGBA(139, 0, 0, 0.1);
 }
 
 .m-content__tasks {
@@ -219,11 +237,6 @@ body {
   -webkit-box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
           box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
   margin-bottom: 2vh;
-}
-
-#checked {
-  text-decoration: line-through;
-  background-color: RGBA(139, 0, 0, 0.1);
 }
 
 .c-tasks__checkbox {
@@ -275,6 +288,5 @@ body {
   width: 100vw;
   -webkit-box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
           box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
-  border: 2px solid red;
 }
 /*# sourceMappingURL=style.css.map */

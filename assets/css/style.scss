@@ -88,7 +88,9 @@ $btncolor: #3d7769;
     box-shadow: $boxshadow;
 }
 .m-input__content {
-    margin-left: 2vw;
+    transform: translateX(-4vw);
+    align-self: center;
+   
 }
 #taskInput {
     border-radius: 15px;
@@ -136,7 +138,7 @@ $btncolor: #3d7769;
 }
 .contentWarn {
     display: none;
-    background: #ff4040;
+    background: rgba(255,64,64,0.7);
     color: white;
     font-size: large;
     font-weight: 400;
@@ -144,6 +146,21 @@ $btncolor: #3d7769;
     margin: 2vh;
     
 }
+.contentAdvise {
+    display: none;
+    color: white;
+    font-size: large;
+    font-weight: 400;
+    text-align: justify;
+    margin: 1vh 1vw;
+    
+}
+
+#checked {
+    text-decoration: line-through;
+    background-color: RGBA(139, 0, 0, 0.1);
+}
+
 .m-content__tasks {
     display: flex;
     flex-wrap: wrap;
@@ -159,10 +176,7 @@ $btncolor: #3d7769;
     box-shadow: $boxshadow;
     margin-bottom: 2vh;
 }
-#checked {
-    text-decoration: line-through;
-    background-color: RGBA(139, 0, 0, 0.1);
-}
+
 
 .c-tasks__checkbox {
     align-self: center;
@@ -188,9 +202,7 @@ $btncolor: #3d7769;
 //  3. Footer
 
 .l-footer {
-    //align-self: flex-end;
     margin-top: 50vh;
-    //animation: gradient 20s ease infinite;
     @include centerFlexColumn;
     background: linear-gradient(10deg, #43447eb7, #163855, #356070, #3d7769) no-repeat;
     background-size: 300% 300%;
@@ -198,5 +210,4 @@ $btncolor: #3d7769;
     height: 12vh;
     width: 100vw;
     box-shadow: $boxshadow;
-    border: 2px solid red;
 }

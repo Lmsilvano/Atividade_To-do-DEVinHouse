@@ -10,8 +10,6 @@ window.onload = function () {
 
 
 function sendTask() {
-
-    document.querySelector('.contentWarn').innerHTML = '';
     const tasksInputData = document.querySelector('#taskInput');
     if (tasksInputData.value === '') {
         let warning = document.querySelector('.contentWarn')
@@ -21,15 +19,17 @@ function sendTask() {
             warning.style = 'display: none;'
         }, 1450);
         return;
+    } else {
+        document.querySelector('.contentAdvise').style = 'display: none';
+        printTasksOnClick(tasksInputData.value);
+        salvedata();
+        clearInput(tasksInputData);
     }
-    printTasksOnClick(tasksInputData.value);
-    salvedata();
-    clearInput(tasksInputData);
 
 
 };
 
-// 1.2 dispara função acima com ao usuário pressionar tecla enter no input de tarefas
+// 1.2 dispara função acima ao usuário pressionar tecla enter no input de tarefas
 
 document.querySelector('#taskInput').addEventListener('keypress', function (e) {
     if (e.keyCode === 13) {
@@ -41,7 +41,7 @@ document.querySelector('#taskInput').addEventListener('keypress', function (e) {
 // 2. Funções
 
 
-//2.1 Função construtora de elementos do DOM.
+// 2.1 Função construtora de elementos do DOM.
 function DOMConstructor(elem, elem2, elem3, attribute) {
 
     let element = document.createElement(elem);
@@ -49,12 +49,12 @@ function DOMConstructor(elem, elem2, elem3, attribute) {
     return elem3 === '.m-content_C' ? document.querySelector(elem3).appendChild(element) : elem3.appendChild(element)
 }
 
-//2.2 Função para limpar input
+// 2.2 Função para limpar input
 function clearInput(input) {
     input.value = '';
 }
 
-//2.3 Função para salvar dados no localStorage (retirados da HTML), e atualizar marcação ou remoção dos dados no localStorage.
+// 2.3 Função para salvar dados no localStorage (retirados da HTML), e atualizar marcação ou remoção dos dados no localStorage.
 
 function salvedata() {
 
@@ -62,6 +62,7 @@ function salvedata() {
     let tasksArray = [];
     for (let task of tasksList) {
         let taskText = { name: task.innerText, markup: 0 };
+        // 2.3.1 se a tarefa foi marcada insere 1 na propriedade "markup"
         if (task.parentElement.id === 'checked') {
             taskText.markup = 1;
         }
@@ -72,7 +73,7 @@ function salvedata() {
     localStorage.setItem('TasksData', tasksJSON)
 };
 
-//2.4 função para imprimir dados no HTML após o clique do usuário.
+// 2.4 função para imprimir dados no HTML após o clique do usuário.
 
 function printTasksOnClick(argument) {
     let divContentTask = DOMConstructor("div", "m-content__tasks", ".m-content_C", 'class');
@@ -85,11 +86,11 @@ function printTasksOnClick(argument) {
     btnRemoveTask.innerText = 'Remover Tarefa';
 }
 
-//2.5 função para imprimir dados do localStorage após o carregamento da página, se não houver dados retorna mensagem.
+// 2.5 função para imprimir dados do localStorage após o carregamento da página, se não houver dados retorna mensagem.
 
 function printTasksOnload() {
     const tasksFromlocal = JSON.parse(localStorage.getItem('TasksData')) || [];
-    const contentWarn = document.querySelector('.contentWarn')
+    const contentAdvise = document.querySelector('.contentAdvise')
 
     if (tasksFromlocal.length > 0) {
         tasksFromlocal.forEach((task) => {
@@ -98,7 +99,7 @@ function printTasksOnload() {
             let inputCheckBox = DOMConstructor("input", "checkbox", divContentTask, 'type');
             inputCheckBox.setAttribute('class', 'c-tasks__checkbox');
             inputCheckBox.setAttribute('id', 'checkboxTask');
-            // 2.5.6 se tarefa foi marcada recebe 1 no atributo markup
+            // 2.5.1 se tarefa foi marcada com 1 no atributo markup, recebe ID checked para estilização e Checkbox é marcado.
             if (task.markup === 1) {
                 divContentTask.setAttribute('id', 'checked');
                 inputCheckBox.checked = true;
@@ -109,8 +110,7 @@ function printTasksOnload() {
             btnRemoveTask.innerText = 'Remover Tarefa';
         });
     } else {
-
-        contentWarn.innerHTML = `<p>No momento não há tarefas adicionadas, experimente adicionar alguma tarefa, ajuda você a organizar o seu dia!</p>`
+        contentAdvise.style = "display:block;"
     }
 }
 
@@ -119,16 +119,22 @@ function printTasksOnload() {
 document.addEventListener('click', (e) => {
 
     let el = e.target
-    //3.1 Callback para deletar tarefa da tela e do localStorage ao clicar no botão de remover tarefa.
+    // 3.1 Callback para deletar tarefa da tela e do localStorage ao clicar no botão de remover tarefa
+    // e retornar mensagem de que a seção de tarefas está vazia, caso esteja.
     if (el.classList.contains('c-tasks__btnRemove')) {
-        if (window.confirm("Deseja excluir a tarefa?")) {
+        if (window.confirm("Botão remover exclui permanentemente a tarefa!\n Deseja prosseguir?")) {
             el.parentElement.remove()
+            let ifEmpty = document.getElementsByClassName(`${el.parentElement.classList.value}`)
+            if (ifEmpty.length === 0) {
+                document.querySelector(".contentAdvise").style = 'display: block'
+            }
             salvedata();
         } else {
             return;
         }
     };
-    //3.2 Callback configurado no clique no checkbox ou no label para marcar ou desmarcar tarefa e Atualizar localStorage.
+    // 3.2 Callback configurado no clique no checkbox ou no label para marcar ou desmarcar tarefa(marca utilizando ID CSS)
+    // e Atualizar localStorage(salvedata()).
     //3.2.1 no Label
     if (el.classList.contains('c-tasks__label')) {
         if (el.parentElement.id === 'checked') {
