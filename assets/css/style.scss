@@ -1,12 +1,12 @@
 /*  1.Configurações gerais/Padronização  */
 
-@import url('https://fonts.googleapis.com/css2?family=Urbanist&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Urbanist&display=swap");
 * {
     padding: 0;
     margin: 0;
     list-style: none;
-    text-decoration: none; 
-    font-family: 'Urbanist', sans-serif; 
+    text-decoration: none;
+    font-family: "Urbanist", sans-serif;
     box-sizing: border-box;
 }
 
@@ -15,23 +15,21 @@ a {
     padding: 1vw;
 }
 
-body{
-
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #f0f2f5;
+    
 }
 
 /*  1.2 Mixins, Variaveis e Animações   */
 
-$boxshadow:rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
+$boxshadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
 $btncolor: #3d7769;
 
-
-
 @mixin centerFlexColumn {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -51,11 +49,9 @@ $btncolor: #3d7769;
     }
 }
 
-
-
 //  2.  Estilização do corpo  //
 //  2.1  Header  //
-.l-header{
+.l-header {
     animation: gradient 20s ease infinite;
     @include centerFlexColumn;
     background: linear-gradient(-10deg, #43447eb7, #163855, #356070, #3d7769) no-repeat;
@@ -65,26 +61,21 @@ $btncolor: #3d7769;
     width: 100vw;
     box-shadow: $boxshadow;
     border-radius: 0 0 50px 50px;
-    
-    
 }
-.l-header__description{
+.l-header__description {
     font-size: large;
 }
 
 //  2.2  Main   //
 
-.l-main{
+.l-main {
     @include centerFlexColumn;
-    
     height: auto;
     width: auto;
-    border: 2px solid red;
     margin: 4vh 0;
-
 }
 
-.l-main__input{
+.l-main__input {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -96,33 +87,31 @@ $btncolor: #3d7769;
     border-radius: 20px;
     box-shadow: $boxshadow;
 }
-.m-input__content{
+.m-input__content {
     margin-left: 2vw;
 }
-#taskInput{
+#taskInput {
     border-radius: 15px;
     width: 20vw;
     height: 3vh;
-    padding-left:10px;
+    padding-left: 10px;
     font-size: large;
     font-weight: 550;
 }
-#btn-sendtask{
+#btn-sendtask {
     background: $btncolor;
     width: 20vw;
-    height:4vh;
+    height: 4vh;
     color: white;
     font-size: large;
     margin-top: 1vh;
     border-radius: 50px;
     align-self: center;
-
-    
 }
 
 //2.2.1                  Main Content
 
-.l-main__content{
+.l-main__content {
     @include centerFlexColumn;
     margin-top: 3vh;
     background-color: rgba(53, 96, 112, 1);
@@ -134,34 +123,28 @@ $btncolor: #3d7769;
     box-shadow: $boxshadow;
 }
 
-
-.m-content__header{
+.m-content__header {
     align-self: center;
     margin-bottom: 2vh;
     text-align: justify;
     padding: 2px 20px;
 }
 
-// .m-content__tasks::before{
-//     content: '';
-    
-//     width:30vw;
-//     height: 3px;
-//     margin: 1vh 0;
-//     background-color: #163855;
-// }
-.m-content_C{
+.m-content_C {
     height: auto;
     width: auto;
 }
-.contentWarn{
-    color: white; 
-    font-size: large; 
-    font-weight: 400; 
-    text-align: justify;
+.contentWarn {
+    display: none;
+    background: #ff4040;
+    color: white;
+    font-size: large;
+    font-weight: 400;
+    text-align: center;
     margin: 2vh;
+    
 }
-.m-content__tasks{
+.m-content__tasks {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -169,17 +152,16 @@ $btncolor: #3d7769;
     font-size: large;
     font-weight: 600;
     background-color: #f0f2f5;
-    //border: 3px dotted #163855;
-    padding: 5px  10px;
+    padding: 5px 10px;
     border-radius: 15px;
     width: 30vw;
     height: auto;
     box-shadow: $boxshadow;
     margin-bottom: 2vh;
 }
-#checked{
-    text-decoration: line-through; 
-    background-color: RGBA( 139, 0, 0, 0.1);
+#checked {
+    text-decoration: line-through;
+    background-color: RGBA(139, 0, 0, 0.1);
 }
 
 .c-tasks__checkbox {
@@ -191,14 +173,30 @@ $btncolor: #3d7769;
     transform: scale(2);
     padding: 10px;
 }
-.c-tasks__label{
+.c-tasks__label {
     align-self: center;
 }
 
-.c-tasks__btnRemove{
+.c-tasks__btnRemove {
     font-size: medium;
     background-color: $btncolor;
     color: white;
     border-radius: 25px;
     padding: 8px;
+}
+
+//  3. Footer
+
+.l-footer {
+    //align-self: flex-end;
+    margin-top: 50vh;
+    //animation: gradient 20s ease infinite;
+    @include centerFlexColumn;
+    background: linear-gradient(10deg, #43447eb7, #163855, #356070, #3d7769) no-repeat;
+    background-size: 300% 300%;
+    color: white;
+    height: 12vh;
+    width: 100vw;
+    box-shadow: $boxshadow;
+    border: 2px solid red;
 }
