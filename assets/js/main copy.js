@@ -44,11 +44,7 @@ function salvedata() {
     let tasksList = document.querySelectorAll('.c-tasks__label');
     let tasksArray = [];
     for (let task of tasksList) {
-        let taskText = {name:task.innerText, markup: 0};
-        if(task.parentElement.id === 'checked'){
-            console.log('entrei no console log');
-            taskText.markup = 1;
-        }
+        let taskText = {name:task.innerText, markup: ''};
         tasksArray.push(taskText);
     };
 

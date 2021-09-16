@@ -177,6 +177,10 @@ $btncolor: #3d7769;
     box-shadow: $boxshadow;
     margin-bottom: 2vh;
 }
+#checked{
+    text-decoration: line-through; 
+    background-color: RGBA( 139, 0, 0, 0.1);
+}
 
 .c-tasks__checkbox {
     align-self: center;
