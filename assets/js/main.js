@@ -113,6 +113,48 @@ function printTasksOnload() {
         contentAdvise.style = "display:block;"
     }
 }
+//
+let confirmation;
+function callbackDeleteConfirmation(arg, arg2) {
+    if (arg) {
+        arg2.parentElement.remove()
+        let ifEmpty = document.getElementsByClassName(`${arg2.parentElement.classList.value}`)
+        if (ifEmpty.length === 0) {
+            document.querySelector(".contentAdvise").style = 'display: block'
+        }
+        salvedata();
+    } else {
+        return
+    }
+};
+
+function deleteConfirmation(arg) {
+
+    $.confirm({
+        useBootstrap: false,
+        boxWidth: '30%',
+        textAlign: 'center',
+        title: 'Deseja realmente excluir a tarefa?',
+        content: '',
+        buttons: {
+            formSubmit: {
+                text: 'Excluir',
+                btnClass: 'btn-blue',
+                action: function () {
+                    confirmation = true
+                    callbackDeleteConfirmation(confirmation, arg);
+                }
+            },
+            cancelar: function () {
+                confirmation = false;
+                callbackDeleteConfirmation(confirmation, arg)
+            },
+        },
+    });
+};
+//
+
+
 
 // 3. Eventos de click
 
@@ -122,16 +164,7 @@ document.addEventListener('click', (e) => {
     // 3.1 Callback para deletar tarefa da tela e do localStorage ao clicar no botão de remover tarefa
     // e retornar mensagem de que a seção de tarefas está vazia, caso esteja.
     if (el.classList.contains('c-tasks__btnRemove')) {
-        if (window.confirm("Botão remover exclui permanentemente a tarefa!\n Deseja prosseguir?")) {
-            el.parentElement.remove()
-            let ifEmpty = document.getElementsByClassName(`${el.parentElement.classList.value}`)
-            if (ifEmpty.length === 0) {
-                document.querySelector(".contentAdvise").style = 'display: block'
-            }
-            salvedata();
-        } else {
-            return;
-        }
+        deleteConfirmation(el);
     };
     // 3.2 Callback configurado no clique no checkbox ou no label para marcar ou desmarcar tarefa(marca utilizando ID CSS)
     // e Atualizar localStorage(salvedata()).
@@ -163,3 +196,19 @@ document.addEventListener('click', (e) => {
 
 
 })
+
+
+
+
+// if (el.classList.contains('c-tasks__btnRemove')) {
+//     if (window.confirm("Botão remover exclui permanentemente a tarefa!\n Deseja prosseguir?")) {
+//         el.parentElement.remove()
+//         let ifEmpty = document.getElementsByClassName(`${el.parentElement.classList.value}`)
+//         if (ifEmpty.length === 0) {
+//             document.querySelector(".contentAdvise").style = 'display: block'
+//         }
+//         salvedata();
+//     } else {
+//         return;
+//     }
+// };

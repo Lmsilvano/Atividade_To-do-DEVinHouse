@@ -8,13 +8,17 @@
     <link rel="shortcut icon" href="./assets/img/favicon.ico" />
     <title>Organizador de tarefas</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/blitzer/jquery-ui.css" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
 </head>
 
 <body>
 
-<!-- Aluno: Leandro de Melo Silvano -->
+    <!-- Aluno: Leandro de Melo Silvano -->
 
     <!-- Inicio do Header -->
     <header class="l-header">
@@ -38,13 +42,23 @@
         <section class="l-main__content">
             <div class="m-content__header">
                 <h2>Tarefas adicionadas:</h2>
-                <p><span style="font-weight: bolder;">Dica :</span> Você pode marcar a tarefa clicando no checkbox ou no
-                    nome da tarefa. Para remove-la use o botão remover.</p>
-                    <p class="contentAdvise">No momento não há tarefas adicionadas, experimente adicionar alguma tarefa, ajuda você a organizar o seu dia!</p>
+                <div class='c-header__tip'>
+                    <p>
+                        <span style="font-weight: bolder;">Dica :</span> É possível adicionar uma tarefa clicando no
+                        botão adicionar tarefa ou com a tecla enter.
+                    </p>
+                    <p>
+                        Você pode marcar a tarefa clicando no checkbox ou no
+                        nome da tarefa. Para remove-la use o botão remover.
+                    </p>
+                </div>
+                <hr>
+                <p class="contentAdvise">No momento não há tarefas adicionadas, experimente adicionar alguma tarefa,
+                    ajuda você a organizar o seu dia!</p>
             </div>
             <div class="m-content_C">
                 <p class="contentWarn"></p>
-                
+
 
                 <!-- <div class="m-content__tasks">
                     <input type="checkbox" class="c-tasks__checkbox" name="checkboxTask" id="checkboxTask" value='0'>
