@@ -1,22 +1,21 @@
-
 // 0.1 ao carregar a página exibe as tarefas salvas no localStorage ou exibe mensagem informando que não há tarefas salvas.
 window.onload = function () {
     printTasksOnload()
-}
+};
+
 
 // 1. Função de entrada de dados (disparada no botão de adcionar tarefas). 
 // Adiciona tarefas, coletadas no input, ao Array de tarefas. Salva dados no local storage, limpa input, atualiza dados impressos na tela
 // e retorna mensagem de erro caso usuário tente enviar tarefa em branco.
 
-
 function sendTask() {
     const tasksInputData = document.querySelector('#taskInput');
     if (tasksInputData.value === '') {
-        let warning = document.querySelector('.contentWarn')
-        warning.style = 'display: block;'
-        warning.innerText = `Impossível adicionar tarefa em branco.`
+        let warning = document.querySelector('.contentWarn');
+        warning.style = 'display: block;';
+        warning.innerText = `Impossível adicionar tarefa em branco.`;
         setTimeout(function () {
-            warning.style = 'display: none;'
+            warning.style = 'display: none;';
         }, 1450);
         return;
     } else {
@@ -24,7 +23,7 @@ function sendTask() {
         printTasksOnClick(tasksInputData.value);
         salvedata();
         clearInput(tasksInputData);
-    }
+    };
 
 
 };
@@ -33,20 +32,19 @@ function sendTask() {
 
 document.querySelector('#taskInput').addEventListener('keypress', function (e) {
     if (e.keyCode === 13) {
-        sendTask()
+        sendTask();
     };
 });
 
 
 // 2. Funções
 
-
 // 2.1 Função construtora de elementos do DOM.
 function DOMConstructor(elem, elem2, elem3, attribute) {
 
     let element = document.createElement(elem);
     element.setAttribute(attribute, elem2);
-    return elem3 === '.m-content_C' ? document.querySelector(elem3).appendChild(element) : elem3.appendChild(element)
+    return elem3 === '.m-content_C' ? document.querySelector(elem3).appendChild(element) : elem3.appendChild(element);
 }
 
 // 2.2 Função para limpar input
@@ -55,7 +53,6 @@ function clearInput(input) {
 }
 
 // 2.3 Função para salvar dados no localStorage (retirados da HTML), e atualizar marcação ou remoção dos dados no localStorage.
-
 function salvedata() {
 
     let tasksList = document.querySelectorAll('.c-tasks__label');
@@ -70,11 +67,10 @@ function salvedata() {
     };
 
     const tasksJSON = JSON.stringify(tasksArray);
-    localStorage.setItem('TasksData', tasksJSON)
+    localStorage.setItem('TasksData', tasksJSON);
 };
 
 // 2.4 função para imprimir dados no HTML após o clique do usuário.
-
 function printTasksOnClick(argument) {
     let divContentTask = DOMConstructor("div", "m-content__tasks", ".m-content_C", 'class');
     let inputCheckBox = DOMConstructor("input", "checkbox", divContentTask, 'type');
@@ -87,10 +83,9 @@ function printTasksOnClick(argument) {
 }
 
 // 2.5 função para imprimir dados do localStorage após o carregamento da página, se não houver dados retorna mensagem.
-
 function printTasksOnload() {
     const tasksFromlocal = JSON.parse(localStorage.getItem('TasksData')) || [];
-    const contentAdvise = document.querySelector('.contentAdvise')
+    const contentAdvise = document.querySelector('.contentAdvise');
 
     if (tasksFromlocal.length > 0) {
         tasksFromlocal.forEach((task) => {
@@ -110,9 +105,9 @@ function printTasksOnload() {
             btnRemoveTask.innerText = 'Remover Tarefa';
         });
     } else {
-        contentAdvise.style = "display:block;"
+        contentAdvise.style = "display:block;";
     }
-}
+};
 
 // 2.6 função para invocar jQuerry window de confirmacao de exclusao de tarefa.
 function deleteConfirmation(arg) {
@@ -143,9 +138,6 @@ function deleteConfirmation(arg) {
         },
     });
 };
-//
-
-
 
 // 3. Eventos de click
 
@@ -182,6 +174,5 @@ document.addEventListener('click', (e) => {
         }
         el.parentElement.setAttribute('id', 'checked')
         salvedata();
-
     };
 })
