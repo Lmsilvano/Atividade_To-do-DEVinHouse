@@ -16,11 +16,7 @@ a {
     padding: 1vw;
 }
 
-body {
-    @include centerFlexColumn;
-    background-color: blue;
-    //background-color: #f0f2f5;
-}
+
 
 /*  1.2 Mixins, Variaveis e Animações   */
 
@@ -60,13 +56,17 @@ $btncolor: #3d7769;
         background-position: 0 50%;
     }
 }
-
+//0.1 body
+body {
+    @include centerFlexColumn;
+    background-color: #f0f2f5;
+}
 //  2.  Estilização do corpo  //
 //  2.1  Header  //
 .l-header {
-    animation: gradient 15s ease infinite;
+    animation: gradient 20s ease infinite;
     @include centerFlexColumn;
-    background: linear-gradient(-45deg, #3f3f68b6, #163855, #548ca0, #1c4239) no-repeat;
+    background: linear-gradient(-10deg, #3f3f68b6, #163855, #548ca0, #1c4239) no-repeat;
     background-size: 300% 300%;
     color: white;
     height: 30vh;
@@ -193,9 +193,11 @@ $btncolor: #3d7769;
 }
 
 #checked {
-    color: #163855;
-    text-decoration: underline;
+    
     background-color: RGBA(139, 0, 0, 0.1);
+}
+#checked > label {
+    text-decoration: line-through;
 }
 
 .m-content__tasks {

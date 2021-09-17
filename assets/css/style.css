@@ -16,20 +16,6 @@ a {
   padding: 1vw;
 }
 
-body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: #f0f2f5;
-}
-
 /*  1.2 Mixins, Variaveis e Animações   */
 @-webkit-keyframes gradient {
   0% {
@@ -54,6 +40,23 @@ body {
   }
 }
 
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #f0f2f5;
+}
+
 .l-header {
   -webkit-animation: gradient 20s ease infinite;
           animation: gradient 20s ease infinite;
@@ -70,7 +73,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: linear-gradient(-10deg, #43447eb7, #163855, #356070, #3d7769) no-repeat;
+  background: linear-gradient(-10deg, #3f3f68b6, #163855, #548ca0, #1c4239) no-repeat;
   background-size: 300% 300%;
   color: white;
   height: 30vh;
@@ -326,8 +329,11 @@ body {
 }
 
 #checked {
-  text-decoration: line-through;
   background-color: RGBA(139, 0, 0, 0.1);
+}
+
+#checked > label {
+  text-decoration: line-through;
 }
 
 .m-content__tasks {
@@ -447,5 +453,12 @@ body {
   width: 100vw;
   -webkit-box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
           box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
+}
+
+@media screen and (max-width: 800px) {
+  .l-footer {
+    font-weight: lighter;
+    padding-left: 4vw;
+  }
 }
 /*# sourceMappingURL=style.css.map */
