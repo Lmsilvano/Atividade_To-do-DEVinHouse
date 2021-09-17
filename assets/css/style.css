@@ -84,6 +84,12 @@ body {
   font-size: large;
 }
 
+@media screen and (max-width: 800px) {
+  .l-header__description {
+    margin: 2vh 8vw;
+  }
+}
+
 .l-main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -118,10 +124,17 @@ body {
   background-color: #356070;
   color: white;
   width: 40vw;
-  height: 12vh;
+  height: auto;
+  padding: 2vh 0;
   border-radius: 20px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
           box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
+}
+
+@media screen and (max-width: 800px) {
+  .l-main__input {
+    width: 80vw;
+  }
 }
 
 .m-input__content {
@@ -130,6 +143,26 @@ body {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+}
+
+@media screen and (max-width: 1855px) {
+  .m-input__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
 }
 
 #taskInput {
@@ -141,10 +174,17 @@ body {
   font-weight: 550;
 }
 
+@media screen and (max-width: 800px) {
+  #taskInput {
+    height: auto;
+    width: auto;
+  }
+}
+
 #btn-sendtask {
   background: #3d7769;
   width: 20vw;
-  height: 4vh;
+  padding: 1vh 1vw;
   color: white;
   font-size: large;
   margin-top: 1vh;
@@ -152,6 +192,13 @@ body {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+}
+
+@media screen and (max-width: 800px) {
+  #btn-sendtask {
+    height: auto;
+    width: auto;
+  }
 }
 
 .l-main__content {
@@ -177,6 +224,13 @@ body {
   border-radius: 20px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
           box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
+}
+
+@media screen and (max-width: 800px) {
+  .l-main__content {
+    height: auto;
+    width: 80vw;
+  }
 }
 
 .m-content__header {
@@ -242,6 +296,13 @@ body {
   -webkit-box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
           box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
   margin-bottom: 2vh;
+}
+
+@media screen and (max-width: 800px) {
+  .m-content__tasks {
+    height: auto;
+    width: 70vw;
+  }
 }
 
 .c-tasks__checkbox {

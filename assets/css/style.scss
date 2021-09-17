@@ -20,7 +20,6 @@ body {
     flex-direction: column;
     align-items: center;
     background-color: #f0f2f5;
-    
 }
 
 /*  1.2 Mixins, Variaveis e Animações   */
@@ -64,6 +63,9 @@ $btncolor: #3d7769;
 }
 .l-header__description {
     font-size: large;
+    @media screen and(max-width: 800px) {
+        margin: 2vh 8vw;  
+    }
 }
 
 //  2.2  Main   //
@@ -83,14 +85,22 @@ $btncolor: #3d7769;
     background-color: rgba(53, 96, 112, 1);
     color: white;
     width: 40vw;
-    height: 12vh;
+    height: auto;
+    padding: 2vh 0;
     border-radius: 20px;
     box-shadow: $boxshadow;
+    @media screen and(max-width: 800px) {
+        width: 80vw;
+        
+    }
 }
 .m-input__content {
     transform: translateX(-4vw);
     align-self: center;
-   
+    @media screen and(max-width: 1855px) {
+        @include centerFlexColumn;
+        transform: translateX(0);
+    }
 }
 #taskInput {
     border-radius: 15px;
@@ -99,16 +109,26 @@ $btncolor: #3d7769;
     padding-left: 10px;
     font-size: large;
     font-weight: 550;
+    @media screen and(max-width: 800px) {
+        height: auto;
+        width: auto;
+        
+    }
 }
 #btn-sendtask {
     background: $btncolor;
     width: 20vw;
-    height: 4vh;
+    padding: 1vh 1vw;
     color: white;
     font-size: large;
     margin-top: 1vh;
     border-radius: 50px;
     align-self: center;
+    @media screen and(max-width: 800px) {
+        height: auto;
+        width: auto;
+        
+    }
 }
 
 //2.2.1                  Main Content
@@ -123,6 +143,10 @@ $btncolor: #3d7769;
     padding-top: 2vh;
     border-radius: 20px;
     box-shadow: $boxshadow;
+    @media screen and(max-width: 800px) {
+        height: auto;
+        width: 80vw;   
+    }
 }
 
 .m-content__header {
@@ -131,7 +155,7 @@ $btncolor: #3d7769;
     text-align: justify;
     padding: 2px 20px;
 }
-.c-header__tip{
+.c-header__tip {
     margin: 1vh auto 1vh auto;
     text-align: justify;
 }
@@ -142,13 +166,12 @@ $btncolor: #3d7769;
 }
 .contentWarn {
     display: none;
-    background: rgba(255,64,64,0.7);
+    background: rgba(255, 64, 64, 0.7);
     color: white;
     font-size: large;
     font-weight: 400;
     text-align: center;
     margin: 2vh;
-    
 }
 .contentAdvise {
     display: none;
@@ -157,7 +180,6 @@ $btncolor: #3d7769;
     font-weight: 400;
     text-align: justify;
     margin: 2vh 1vw 1vh 1vw;
-    
 }
 
 #checked {
@@ -179,8 +201,11 @@ $btncolor: #3d7769;
     height: auto;
     box-shadow: $boxshadow;
     margin-bottom: 2vh;
+    @media screen and(max-width: 800px) {
+        height: auto;
+        width: 70vw;   
+    }
 }
-
 
 .c-tasks__checkbox {
     align-self: center;
@@ -203,7 +228,7 @@ $btncolor: #3d7769;
     padding: 8px;
 }
 
-//  3. Footer
+//  2.3 Footer
 
 .l-footer {
     margin-top: 50vh;
