@@ -2,6 +2,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Urbanist&display=swap");
 * {
+    
     padding: 0;
     margin: 0;
     list-style: none;
@@ -17,7 +18,8 @@ a {
 
 body {
     @include centerFlexColumn;
-    background-color: #f0f2f5;
+    background-color: blue;
+    //background-color: #f0f2f5;
 }
 
 /*  1.2 Mixins, Variaveis e Animações   */
@@ -140,7 +142,6 @@ $btncolor: #3d7769;
 //2.2.1                  Main Content
 
 .l-main__content {
-    border: 4px solid red;
     @include centerFlexColumn;
     margin-top: 3vh;
     background-color: rgba(53, 96, 112, 1);
