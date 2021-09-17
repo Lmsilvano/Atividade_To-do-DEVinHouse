@@ -1,6 +1,6 @@
 # Primeiro Projeto do Curso DEVinHouse.
  Projeto proposto no curso DEVinHouse como forma de avaliação do aprendizado na primeira parte do módulo 01 do curso.
-* **Link do projeto:**
+* **[Link do projeto](https://lmsilvano.github.io/Atividade_To-do-DEVinHouse/)**
 
 
 ## Sobre a atividade
