@@ -16,7 +16,6 @@ a {
 }
 
 body {
-
     @include centerFlexColumn;
     background-color: #f0f2f5;
 }
@@ -141,6 +140,7 @@ $btncolor: #3d7769;
 //2.2.1                  Main Content
 
 .l-main__content {
+    border: 4px solid red;
     @include centerFlexColumn;
     margin-top: 3vh;
     background-color: rgba(53, 96, 112, 1);
@@ -155,7 +155,6 @@ $btncolor: #3d7769;
         @include autoSizeResponsive;
         margin: 4vh 4vw;
     }
-    
 }
 
 .m-content__header {
@@ -193,7 +192,8 @@ $btncolor: #3d7769;
 }
 
 #checked {
-    text-decoration: line-through;
+    color: #163855;
+    text-decoration: underline;
     background-color: RGBA(139, 0, 0, 0.1);
 }
 
