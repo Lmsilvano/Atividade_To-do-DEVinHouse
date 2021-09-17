@@ -113,41 +113,32 @@ function printTasksOnload() {
         contentAdvise.style = "display:block;"
     }
 }
-//
-let confirmation;
-function callbackDeleteConfirmation(arg, arg2) {
-    if (arg) {
-        arg2.parentElement.remove()
-        let ifEmpty = document.getElementsByClassName(`${arg2.parentElement.classList.value}`)
-        if (ifEmpty.length === 0) {
-            document.querySelector(".contentAdvise").style = 'display: block'
-        }
-        salvedata();
-    } else {
-        return
-    }
-};
 
+// 2.6 função para invocar jQuerry window de confirmacao de exclusao de tarefa.
 function deleteConfirmation(arg) {
 
     $.confirm({
         useBootstrap: false,
         boxWidth: '30%',
         textAlign: 'center',
-        title: 'Deseja realmente excluir a tarefa?',
+        title: 'Deseja excluir a tarefa?',
         content: '',
         buttons: {
             formSubmit: {
                 text: 'Excluir',
                 btnClass: 'btn-blue',
                 action: function () {
-                    confirmation = true
-                    callbackDeleteConfirmation(confirmation, arg);
+                    arg.parentElement.remove()
+                    let ifEmpty = document.getElementsByClassName(`${arg.parentElement.classList.value}`)
+                    // 2.6.1 se nao houver nenhuma tarefa na lista, volta a exibir mensagem informando ausencia de tarefas.
+                    if (ifEmpty.length === 0) {
+                        document.querySelector(".contentAdvise").style = 'display: block'
+                    }
+                    salvedata();
                 }
             },
             cancelar: function () {
-                confirmation = false;
-                callbackDeleteConfirmation(confirmation, arg)
+                return
             },
         },
     });
@@ -162,7 +153,7 @@ document.addEventListener('click', (e) => {
 
     let el = e.target
     // 3.1 Callback para deletar tarefa da tela e do localStorage ao clicar no botão de remover tarefa
-    // e retornar mensagem de que a seção de tarefas está vazia, caso esteja.
+    // e retornar mensagem de que a seção de tarefas está vazia.
     if (el.classList.contains('c-tasks__btnRemove')) {
         deleteConfirmation(el);
     };
@@ -193,22 +184,4 @@ document.addEventListener('click', (e) => {
         salvedata();
 
     };
-
-
 })
-
-
-
-
-// if (el.classList.contains('c-tasks__btnRemove')) {
-//     if (window.confirm("Botão remover exclui permanentemente a tarefa!\n Deseja prosseguir?")) {
-//         el.parentElement.remove()
-//         let ifEmpty = document.getElementsByClassName(`${el.parentElement.classList.value}`)
-//         if (ifEmpty.length === 0) {
-//             document.querySelector(".contentAdvise").style = 'display: block'
-//         }
-//         salvedata();
-//     } else {
-//         return;
-//     }
-// };
