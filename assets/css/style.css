@@ -192,6 +192,7 @@ body {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  border: none;
 }
 
 @media screen and (max-width: 800px) {
@@ -199,6 +200,11 @@ body {
     height: auto;
     width: auto;
   }
+}
+
+#btn-sendtask:hover {
+  background: #265548;
+  cursor: pointer;
 }
 
 .l-main__content {
@@ -330,6 +336,12 @@ body {
   color: white;
   border-radius: 25px;
   padding: 8px;
+  border: none;
+}
+
+.c-tasks__btnRemove:hover {
+  background: #265548;
+  cursor: pointer;
 }
 
 .l-footer {

@@ -124,11 +124,16 @@ $btncolor: #3d7769;
     margin-top: 1vh;
     border-radius: 50px;
     align-self: center;
+    border: none;
     @media screen and(max-width: 800px) {
         height: auto;
         width: auto;
         
     }
+}
+#btn-sendtask:hover{
+    background: #265548;
+    cursor: pointer;
 }
 
 //2.2.1                  Main Content
@@ -226,6 +231,12 @@ $btncolor: #3d7769;
     color: white;
     border-radius: 25px;
     padding: 8px;
+    border: none;
+}
+
+.c-tasks__btnRemove:hover{
+    background: #265548;
+    cursor: pointer;
 }
 
 //  2.3 Footer
