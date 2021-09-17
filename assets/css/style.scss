@@ -16,9 +16,8 @@ a {
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+    @include centerFlexColumn;
     background-color: #f0f2f5;
 }
 
@@ -32,6 +31,19 @@ $btncolor: #3d7769;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+@mixin responsiveTaskbox {
+    @media screen and(max-width: 800px) {
+        margin: 2vh 3vw;
+    }
+}
+
+@mixin autoSizeResponsive {
+    @media screen and(max-width: 800px) {
+        height: auto;
+        width: auto;
+    }
 }
 
 @keyframes gradient {
@@ -51,9 +63,9 @@ $btncolor: #3d7769;
 //  2.  Estilização do corpo  //
 //  2.1  Header  //
 .l-header {
-    animation: gradient 20s ease infinite;
+    animation: gradient 15s ease infinite;
     @include centerFlexColumn;
-    background: linear-gradient(-10deg, #43447eb7, #163855, #356070, #3d7769) no-repeat;
+    background: linear-gradient(-45deg, #3f3f68b6, #163855, #548ca0, #1c4239) no-repeat;
     background-size: 300% 300%;
     color: white;
     height: 30vh;
@@ -64,7 +76,7 @@ $btncolor: #3d7769;
 .l-header__description {
     font-size: large;
     @media screen and(max-width: 800px) {
-        margin: 2vh 8vw;  
+        margin: 2vh 8vw;
     }
 }
 
@@ -78,24 +90,20 @@ $btncolor: #3d7769;
 }
 
 .l-main__input {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include centerFlexColumn;
     font-size: large;
     background-color: rgba(53, 96, 112, 1);
     color: white;
-    width: 40vw;
+    width: 55rem;
     height: auto;
     padding: 2vh 0;
     border-radius: 20px;
     box-shadow: $boxshadow;
     @media screen and(max-width: 800px) {
         width: 80vw;
-        
     }
 }
 .m-input__content {
-    transform: translateX(-4vw);
     align-self: center;
     @media screen and(max-width: 1855px) {
         @include centerFlexColumn;
@@ -103,17 +111,15 @@ $btncolor: #3d7769;
     }
 }
 #taskInput {
+    @include centerFlexColumn;
+    align-self: center;
     border-radius: 15px;
     width: 20vw;
     height: 3vh;
     padding-left: 10px;
     font-size: large;
     font-weight: 550;
-    @media screen and(max-width: 800px) {
-        height: auto;
-        width: auto;
-        
-    }
+    @include autoSizeResponsive;
 }
 #btn-sendtask {
     background: $btncolor;
@@ -125,13 +131,9 @@ $btncolor: #3d7769;
     border-radius: 50px;
     align-self: center;
     border: none;
-    @media screen and(max-width: 800px) {
-        height: auto;
-        width: auto;
-        
-    }
+    @include autoSizeResponsive;
 }
-#btn-sendtask:hover{
+#btn-sendtask:hover {
     background: #265548;
     cursor: pointer;
 }
@@ -142,16 +144,18 @@ $btncolor: #3d7769;
     @include centerFlexColumn;
     margin-top: 3vh;
     background-color: rgba(53, 96, 112, 1);
-    width: 40vw;
+    width: 55rem;
     height: auto;
     color: white;
     padding-top: 2vh;
     border-radius: 20px;
     box-shadow: $boxshadow;
     @media screen and(max-width: 800px) {
-        height: auto;
-        width: 80vw;   
+        @include centerFlexColumn;
+        @include autoSizeResponsive;
+        margin: 4vh 4vw;
     }
+    
 }
 
 .m-content__header {
@@ -166,6 +170,7 @@ $btncolor: #3d7769;
 }
 
 .m-content_C {
+    @include centerFlexColumn;
     height: auto;
     width: auto;
 }
@@ -194,7 +199,6 @@ $btncolor: #3d7769;
 
 .m-content__tasks {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     color: $btncolor;
     font-size: large;
@@ -202,13 +206,14 @@ $btncolor: #3d7769;
     background-color: #f0f2f5;
     padding: 5px 10px;
     border-radius: 15px;
-    width: 30vw;
+    width: 35rem;
     height: auto;
     box-shadow: $boxshadow;
     margin-bottom: 2vh;
     @media screen and(max-width: 800px) {
+        @include centerFlexColumn;
         height: auto;
-        width: 70vw;   
+        width: 70vw;
     }
 }
 
@@ -220,9 +225,14 @@ $btncolor: #3d7769;
     -o-transform: scale(2); /* Opera */
     transform: scale(2);
     padding: 10px;
+    @include responsiveTaskbox;
 }
 .c-tasks__label {
     align-self: center;
+    display: flex;
+    margin: auto 1vw;
+    word-break: break-all;
+    @include responsiveTaskbox;
 }
 
 .c-tasks__btnRemove {
@@ -232,9 +242,10 @@ $btncolor: #3d7769;
     border-radius: 25px;
     padding: 8px;
     border: none;
+    @include responsiveTaskbox;
 }
 
-.c-tasks__btnRemove:hover{
+.c-tasks__btnRemove:hover {
     background: #265548;
     cursor: pointer;
 }
@@ -250,4 +261,8 @@ $btncolor: #3d7769;
     height: 12vh;
     width: 100vw;
     box-shadow: $boxshadow;
+    @media screen and(max-width: 800px) {
+        font-weight: lighter;
+        padding-left: 4vw;
+    }
 }

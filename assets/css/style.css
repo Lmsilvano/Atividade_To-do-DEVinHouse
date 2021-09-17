@@ -117,13 +117,16 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   font-size: large;
   background-color: #356070;
   color: white;
-  width: 40vw;
+  width: 55rem;
   height: auto;
   padding: 2vh 0;
   border-radius: 20px;
@@ -138,8 +141,6 @@ body {
 }
 
 .m-input__content {
-  -webkit-transform: translateX(-4vw);
-          transform: translateX(-4vw);
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -166,6 +167,21 @@ body {
 }
 
 #taskInput {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
   border-radius: 15px;
   width: 20vw;
   height: 3vh;
@@ -223,7 +239,7 @@ body {
           justify-content: center;
   margin-top: 3vh;
   background-color: #356070;
-  width: 40vw;
+  width: 55rem;
   height: auto;
   color: white;
   padding-top: 2vh;
@@ -234,8 +250,27 @@ body {
 
 @media screen and (max-width: 800px) {
   .l-main__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 4vh 4vw;
+  }
+}
+
+@media screen and (max-width: 800px) and (max-width: 800px) {
+  .l-main__content {
     height: auto;
-    width: 80vw;
+    width: auto;
   }
 }
 
@@ -254,6 +289,19 @@ body {
 }
 
 .m-content_C {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: auto;
   width: auto;
 }
@@ -286,8 +334,6 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -297,7 +343,7 @@ body {
   background-color: #f0f2f5;
   padding: 5px 10px;
   border-radius: 15px;
-  width: 30vw;
+  width: 35rem;
   height: auto;
   -webkit-box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
           box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
@@ -306,6 +352,19 @@ body {
 
 @media screen and (max-width: 800px) {
   .m-content__tasks {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     height: auto;
     width: 70vw;
   }
@@ -324,10 +383,26 @@ body {
   padding: 10px;
 }
 
+@media screen and (max-width: 800px) {
+  .c-tasks__checkbox {
+    margin: 2vh 3vw;
+  }
+}
+
 .c-tasks__label {
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
       align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto 1vw;
+  word-break: break-all;
+}
+
+@media screen and (max-width: 800px) {
+  .c-tasks__label {
+    margin: 2vh 3vw;
+  }
 }
 
 .c-tasks__btnRemove {
@@ -337,6 +412,12 @@ body {
   border-radius: 25px;
   padding: 8px;
   border: none;
+}
+
+@media screen and (max-width: 800px) {
+  .c-tasks__btnRemove {
+    margin: 2vh 3vw;
+  }
 }
 
 .c-tasks__btnRemove:hover {
