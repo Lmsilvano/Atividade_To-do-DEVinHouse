@@ -58,6 +58,7 @@ $btncolor: #3d7769;
 }
 //0.1 body
 body {
+    background-color: blue;
     @include centerFlexColumn;
     background-color: #f0f2f5;
 }
