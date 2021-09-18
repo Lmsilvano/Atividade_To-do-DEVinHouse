@@ -14,9 +14,10 @@ function sendTask() {
         let warning = document.querySelector('.contentWarn');
         warning.style = 'display: block;';
         warning.innerText = `Impossível adicionar tarefa em branco.`;
+        animationO('faded-out', warning)
         setTimeout(function () {
             warning.style = 'display: none;';
-        }, 1450);
+        }, 1750);
         return;
     } else {
         document.querySelector('.contentAdvise').style = 'display: none';
@@ -24,8 +25,6 @@ function sendTask() {
         salvedata();
         clearInput(tasksInputData);
     };
-
-
 };
 
 // 1.2 dispara função acima ao usuário pressionar tecla enter no input de tarefas
@@ -35,7 +34,6 @@ document.querySelector('#taskInput').addEventListener('keypress', function (e) {
         sendTask();
     };
 });
-
 
 // 2. Funções
 
@@ -65,7 +63,6 @@ function salvedata() {
         }
         tasksArray.push(taskText);
     };
-
     const tasksJSON = JSON.stringify(tasksArray);
     localStorage.setItem('TasksData', tasksJSON);
 };
@@ -73,6 +70,7 @@ function salvedata() {
 // 2.4 função para imprimir dados no HTML após o clique do usuário.
 function printTasksOnClick(argument) {
     let divContentTask = DOMConstructor("div", "m-content__tasks", ".m-content_C", 'class');
+    animationO('faded-out', divContentTask)
     let inputCheckBox = DOMConstructor("input", "checkbox", divContentTask, 'type');
     inputCheckBox.setAttribute('class', 'c-tasks__checkbox')
     inputCheckBox.setAttribute('id', 'checkboxTask')
@@ -86,11 +84,11 @@ function printTasksOnClick(argument) {
 function printTasksOnload() {
     const tasksFromlocal = JSON.parse(localStorage.getItem('TasksData')) || [];
     const contentAdvise = document.querySelector('.contentAdvise');
-
     if (tasksFromlocal.length > 0) {
         tasksFromlocal.forEach((task) => {
 
             let divContentTask = DOMConstructor("div", "m-content__tasks", ".m-content_C", 'class');
+            animationO('faded-out', divContentTask)
             let inputCheckBox = DOMConstructor("input", "checkbox", divContentTask, 'type');
             inputCheckBox.setAttribute('class', 'c-tasks__checkbox');
             inputCheckBox.setAttribute('id', 'checkboxTask');
@@ -106,12 +104,12 @@ function printTasksOnload() {
         });
     } else {
         contentAdvise.style = "display:block;";
+        animationO('faded-out', contentAdvise);
     }
 };
 
 // 2.6 função para invocar jQuerry window de confirmacao de exclusao de tarefa.
 function deleteConfirmation(arg) {
-
     $.confirm({
         useBootstrap: false,
         boxWidth: '30%',
@@ -127,20 +125,29 @@ function deleteConfirmation(arg) {
                     let ifEmpty = document.getElementsByClassName(`${arg.parentElement.classList.value}`)
                     // 2.6.1 se nao houver nenhuma tarefa na lista, volta a exibir mensagem informando ausencia de tarefas.
                     if (ifEmpty.length === 0) {
-                        document.querySelector(".contentAdvise").style = 'display: block'
+                        let advise = document.querySelector(".contentAdvise");
+                        advise.style = 'display: block';
+                        animationO('faded-out', advise);
                     }
                     salvedata();
                 }
             },
             cancelar: function () {
-                return
+                return;
             },
         },
     });
 };
 
-// 3. Eventos de click
+// 2.7 Função de animação(mudança de opacidade) de entrada de elementos injetados no HTML.
+function animationO(classe, elem) {
+    elem.classList.add(classe);
+    requestAnimationFrame(() => {
+        elem.classList.remove(classe);
+    });
+}
 
+// 3. Eventos de click
 document.addEventListener('click', (e) => {
 
     let el = e.target
@@ -175,4 +182,4 @@ document.addEventListener('click', (e) => {
         el.parentElement.setAttribute('id', 'checked')
         salvedata();
     };
-})
+});

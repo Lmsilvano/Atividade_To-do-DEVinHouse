@@ -41,7 +41,6 @@ a {
 }
 
 body {
-  background-color: blue;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -213,6 +212,8 @@ body {
       -ms-grid-row-align: center;
       align-self: center;
   border: none;
+  -webkit-transition-duration: 1.5s;
+          transition-duration: 1.5s;
 }
 
 @media screen and (max-width: 800px) {
@@ -318,6 +319,9 @@ body {
   font-weight: 400;
   text-align: center;
   margin: 2vh;
+  -webkit-transition: opacity 1500ms;
+  transition: opacity 1500ms;
+  will-change: opacity;
 }
 
 .contentAdvise {
@@ -327,6 +331,9 @@ body {
   font-weight: 400;
   text-align: justify;
   margin: 2vh 1vw 1vh 1vw;
+  -webkit-transition: opacity 1500ms;
+  transition: opacity 1500ms;
+  will-change: opacity;
 }
 
 #checked {
@@ -355,6 +362,9 @@ body {
   -webkit-box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
           box-shadow: rgba(0, 0, 0, 0.459) 2px 5px 12px 2px;
   margin-bottom: 2vh;
+  -webkit-transition: opacity 1500ms;
+  transition: opacity 1500ms;
+  will-change: opacity;
 }
 
 @media screen and (max-width: 800px) {
@@ -375,6 +385,10 @@ body {
     height: auto;
     width: 70vw;
   }
+}
+
+.faded-out {
+  opacity: 0;
 }
 
 .c-tasks__checkbox {
@@ -419,6 +433,8 @@ body {
   border-radius: 25px;
   padding: 8px;
   border: none;
+  -webkit-transition-duration: 1.5s;
+          transition-duration: 1.5s;
 }
 
 @media screen and (max-width: 800px) {

@@ -43,6 +43,7 @@ $btncolor: #3d7769;
     }
 }
 
+
 @keyframes gradient {
     0% {
         background-position: 0 50%;
@@ -56,9 +57,10 @@ $btncolor: #3d7769;
         background-position: 0 50%;
     }
 }
+
 //0.1 body
 body {
-    background-color: blue;
+    
     @include centerFlexColumn;
     background-color: #f0f2f5;
 }
@@ -134,6 +136,7 @@ body {
     align-self: center;
     border: none;
     @include autoSizeResponsive;
+    transition-duration: 1.5s;
 }
 #btn-sendtask:hover {
     background: #265548;
@@ -183,6 +186,8 @@ body {
     font-weight: 400;
     text-align: center;
     margin: 2vh;
+    transition: opacity 1500ms;
+    will-change: opacity;
 }
 .contentAdvise {
     display: none;
@@ -191,15 +196,17 @@ body {
     font-weight: 400;
     text-align: justify;
     margin: 2vh 1vw 1vh 1vw;
+    transition: opacity 1500ms;
+    will-change: opacity;
 }
-
+//                  class para marcar elementos
 #checked {
     background-color: RGBA(139, 0, 0, 0.1);
 }
 #checked > label {
     text-decoration: line-through;
 }
-
+//
 .m-content__tasks {
     display: flex;
     justify-content: space-between;
@@ -213,6 +220,8 @@ body {
     height: auto;
     box-shadow: $boxshadow;
     margin-bottom: 2vh;
+    transition: opacity 1500ms;
+    will-change: opacity;
     @media screen and(max-width: 800px) {
         @include centerFlexColumn;
         height: auto;
@@ -220,6 +229,12 @@ body {
     }
 }
 
+// classes para animação.
+
+.faded-out {
+    opacity: 0;
+  };
+//
 .c-tasks__checkbox {
     align-self: center;
     -ms-transform: scale(2); /* IE */
@@ -246,6 +261,7 @@ body {
     padding: 8px;
     border: none;
     @include responsiveTaskbox;
+    transition-duration: 1.5s;
 }
 
 .c-tasks__btnRemove:hover {
